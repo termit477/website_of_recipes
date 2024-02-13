@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ result.title }}
+{% endblock %}
+
+{% block main %}
+<div class="center white">
+    <section class="recipe">
+        <h1 class="recipe_title">{{ result.title }}</h1>
+        <div class="recipe_main">
+            <img class="recipe_image" src="{{ result.image.url }}" alt="Фото рецепта">
+            <div class="recipe_shot_info">
+                <h4 class="recipe_block"><b>Автор рецепта:</b>
+                    <a href="{% url 'author_view' result.author.username %}">{{ result.author }}</a>
+                </h4>
+                <p class="recipe_block"><b>Описание блюда:</b> {{ result.description }}</p>
+                <p class="recipe_block"><b>Время приготовления:</b> {{ result.time }}</p>
+                <p class="recipe_block"><b>Количество порций:</b> {{ result.portions }}</p>
+                <p class="recipe_block"><b>Ингридиенты:</b> {{ result.ingredients }}</p>
+            </div>
+        </div>
+        <p class="recipe_steps">{{ result.steps }}</p>
+</div>
+{% endblock %}
